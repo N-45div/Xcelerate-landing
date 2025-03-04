@@ -1,12 +1,24 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { AnimatedSpan , Terminal , TypingAnimation } from "@/components/terminal";
+import { WordRotate } from "@/components/ui/rotate";
+import { VelocityScroll } from "@/components/ui/marquee";
 
 export default function SparklesPreview() {
   return (
     <div className="h-[56rem] relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+        <div className="relative py-3 flex w-full flex-col items-center justify-center overflow-hidden">
+      <VelocityScroll>Xcelerate the passive income with Sonic</VelocityScroll>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+    </div>
+       <WordRotate
+      className="text-4xl font-bold text-black dark:text-white"
+      words={["on-chain", "sonic"]}
+    /> 
        <h1 className="md:text-3xl py-10 text-3xl lg:text-9xl font-bold text-center text-white relative z-30">
           Xcelerate
       </h1>
@@ -60,11 +72,16 @@ export default function SparklesPreview() {
         You may now see the charts exploding.
       </TypingAnimation>
     </Terminal>
-    <div className="flex flex-col pt-7 md:flex-row space-y-10 md:space-y-3 space-x-0 md:space-x-5">
-        <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm" >
-          Follow on X
-        </button>
-      </div>
+    <footer className="fixed bottom-0 w-full p-4 text-center text-white">
+      <Link 
+        href="https://x.com/xcelerate_sonic" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="hover:text-blue-400 transition-colors"
+      >
+        Follow us on X @xcelerate_sonic
+      </Link>
+    </footer>
     </div>
   );
 }
